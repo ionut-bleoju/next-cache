@@ -21,6 +21,7 @@ export default async function Home() {
           priority
         />
       </main>
+      {new Date().toISOString()}
       <UserDisplayCard />
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
