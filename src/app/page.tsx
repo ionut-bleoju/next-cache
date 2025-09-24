@@ -5,9 +5,7 @@ import GlobeIcon from "public/globe.svg";
 import FileIcon from "public/file.svg";
 import WindowIcon from "public/window.svg";
 
-export const dynamic = "force-static";
 export const revalidate = 3600;
-
 
 export default async function Home() {
   return (
