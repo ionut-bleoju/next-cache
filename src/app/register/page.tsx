@@ -19,7 +19,6 @@ export default function RegisterPage() {
       if (!result.ok && result.message) {
         setError(result.message);
       } else {
-        // Refresh the user state in Zustand store
         await initializeAuth();
         router.push("/");
       }

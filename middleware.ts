@@ -1,16 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  console.log('🔍 Request:', {
-    method: request.method,
-    url: request.url,
-    pathname: request.nextUrl.pathname,
-    timestamp: new Date().toISOString(),
-    userAgent: request.headers.get('user-agent'),
-    cookies: request.cookies.getAll(),
-  });
+  const response = NextResponse.next();
 
-  return NextResponse.next();
+  if (request.nextUrl.pathname === "/") {
+    response.headers.set("Cache-Control", "public, max-age=3600");
+  }
+
+  return response;
 }
 
 // Optionally, you can configure which paths the middleware runs on
@@ -23,6 +20,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    "/((?!_next/static|_next/image|favicon.ico).*)",
   ],
 };

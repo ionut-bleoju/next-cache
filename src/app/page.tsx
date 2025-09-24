@@ -8,13 +8,6 @@ import WindowIcon from "public/window.svg";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-export function generateMetadata() {
-  return {
-    other: {
-      "Cache-Control": "public, max-age=3600", // No must-revalidate
-    },
-  };
-}
 
 export default async function Home() {
   return (
