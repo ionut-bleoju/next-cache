@@ -4,10 +4,15 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { login } from "../actions/auth";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "../../store/userStore";
+
 export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const { initializeAuth } = useUserStore();
+
   const router = useRouter();
+
   async function handleSubmit(formData: FormData) {
     startTransition(async () => {
       setError(null);
@@ -15,6 +20,7 @@ export default function LoginPage() {
       if (!result.ok && result.message) {
         setError(result.message);
       } else {
+        await initializeAuth();
         router.push("/");
       }
     });
