@@ -1,11 +1,22 @@
 import Image from "next/image";
 import { Suspense } from "react";
 import UserDisplayCard from "../components/UserDisplayCard";
-import TestComponent from "../components/TestComponent";
 import NextIcon from "public/next.svg";
 import GlobeIcon from "public/globe.svg";
 import FileIcon from "public/file.svg";
 import WindowIcon from "public/window.svg";
+import { cookies } from "next/headers";
+
+const TestComponent = async () => {
+  const test = await cookies();
+  console.log(test.getAll());
+  return (
+    <div>
+      {test.getAll().map((cookie) => cookie.name)}
+      {new Date().toISOString()}
+    </div>
+  );
+};
 
 export default async function Home() {
   return (
