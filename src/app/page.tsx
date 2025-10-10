@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import UserDisplayCard from "../components/UserDisplayCard";
 import NextIcon from "public/next.svg";
 import GlobeIcon from "public/globe.svg";
@@ -29,7 +30,9 @@ export default async function Home() {
           height={38}
           priority
         />
-        <TestComponent />
+        <Suspense fallback={<div>Loading...</div>}>
+          <TestComponent />
+        </Suspense>
       </main>
       <UserDisplayCard />
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
