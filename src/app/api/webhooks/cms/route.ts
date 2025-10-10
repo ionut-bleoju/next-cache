@@ -98,3 +98,5 @@ export async function POST(req: NextRequest) {
     purged: urls,
   });
 }
+
+export const dynamic = "force-dynamic"; // ensure this handler is always dynamic
