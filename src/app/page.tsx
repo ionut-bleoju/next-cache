@@ -7,8 +7,6 @@ import GlobeIcon from "public/globe.svg";
 import FileIcon from "public/file.svg";
 import WindowIcon from "public/window.svg";
 
-export const experimental_ppr = true;
-
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -21,11 +19,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <Suspense fallback={
-          <div className="p-4 border border-blue-500 rounded animate-pulse">
-            <p className="font-bold">Loading streamed content...</p>
-          </div>
-        }>
+        <Suspense fallback={<div>Loading...</div>}>
           <TestComponent />
         </Suspense>
       </main>
