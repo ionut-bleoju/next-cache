@@ -62,6 +62,9 @@ export default function UserDisplayCard() {
       <div className="mt-4 text-xs text-blue-100">
         User ID: {user.id.substring(0, 8)}...
       </div>
+      <div className="mt-2 text-xs text-blue-100">
+        Loaded at: {new Date().toLocaleString()}
+      </div>
     </div>
   );
 }

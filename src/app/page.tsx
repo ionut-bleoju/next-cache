@@ -1,5 +1,6 @@
 import Image from "next/image";
 import UserDisplayCard from "../components/UserDisplayCard";
+import ServerDateDisplay from "../components/ServerDateDisplay";
 import NextIcon from "public/next.svg";
 import GlobeIcon from "public/globe.svg";
 import FileIcon from "public/file.svg";
@@ -21,6 +22,7 @@ export default async function Home() {
         />
       </main>
       {new Date().toISOString()}
+      <ServerDateDisplay />
       <UserDisplayCard />
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
